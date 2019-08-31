@@ -29,12 +29,18 @@ namespace WNETEncryption
             {
                 if (select == 1)
                 {
+                    if (sloznost < 6)
+                        sloznost = 6;
+
                     Console.WriteLine("Введите текст");
                     text = Console.ReadLine();
                     TheEndCoding.Encrypt(key, text);
                 }
                 else if (select == 2)
                 {
+                    if (sloznost < 6)
+                        sloznost = 6;
+
                     Console.WriteLine("Введите текст");
                     TheEndCoding.Decrypt(key, Console.ReadLine());
                 }
@@ -42,8 +48,9 @@ namespace WNETEncryption
         }
         class TheEndCoding
         {
-            private static string alph = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ1234567890 !@#$%^&*()_+№;%:?*()~";
+            private static string alph = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 !@#$%^&*()_+№;%:?*()~";
             private static int key = default;
+
             public static void Encrypt(string key, string text)
             {
                 SetKey(key);
@@ -75,7 +82,7 @@ namespace WNETEncryption
                     }
                 }
 
-                Console.WriteLine("Крипт:");
+                Console.WriteLine("Encrypt:");
                 Console.WriteLine(CriptText);
                 Consol();
             }
@@ -123,7 +130,7 @@ namespace WNETEncryption
                     }
                 }
 
-                Console.WriteLine("Крипт:");
+                Console.WriteLine("Decrypt:");
                 Console.WriteLine(CriptText);
                 Consol();
             }
